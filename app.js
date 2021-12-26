@@ -4,6 +4,7 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const path = require('path');
 const https = require('https');
+const port = process.env.PORT||3001;
 // const ejsLint = require('ejs-lint');
 const app = express();
 
@@ -76,6 +77,6 @@ app.get('/publish', (req, res) => {
 
 
 
-app.listen(3001, () => {
-  console.log('listening on 3001');
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 })
