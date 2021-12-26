@@ -4,12 +4,16 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const path = require('path');
 const https = require('https');
+const { link } = require('fs/promises');
+const { links } = require('express/lib/response');
 // const ejsLint = require('ejs-lint');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extension: 'true' }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('views'));
+
 
 dotenv.config({ path: path.join(__dirname, 'config.env') });
 API_KEY = process.env.API;

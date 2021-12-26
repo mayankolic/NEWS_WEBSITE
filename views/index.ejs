@@ -1,20 +1,21 @@
 <%-include('header') %>
     <%-include('nav') %>
-
-        <div style="display:flex; flex-wrap:wrap;margin-left:100px">
+        <link type="text/css" href="./styles.css" rel="stylesheet">
+        <div style="display:flex; flex-wrap:wrap">
             <%if(JSON.stringify(news.length)){%>
                 <%for(var i=0;i<JSON.stringify(news.length);i++){%>
-                    <div class="card mx-3" style="width: 18rem;margin-top:20px;">
-                        <img src="<%= (news[i].urlToImage)%>" class="card-img-top" alt="<%= JSON.stringify(news[i].title)%>">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%= JSON.stringify(news[i].title)%>
-                            </h5>
-                            <p class="card-text">
-                                <%=(news[i].description)%>
-                            </p>
-                            <a target="_blank" href="<%= (news[i].url)%>" class="btn btn-primary"> Read Article</a>
-                        </div>
+                    <div class="card mx-auto" style="width: 20rem;margin: 10px;background:white" onmouseover=this.style.background='gray' ; " onmouseout="this.style.background='white' ; ">
+                        <img src="<%=( news[i].urlToImage)%>" class="card-img-top" alt="
+                        <%= JSON.stringify(news[i].title)%>">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= JSON.stringify(news[i].title)%>
+                                </h5>
+                                <p class="card-text">
+                                    <%=(news[i].description)%>
+                                </p>
+                                <a target="_blank" href="<%= (news[i].url)%>" class="btn btn-primary"> Read Article</a>
+                            </div>
                     </div>
                     <%}%>
                         <%}%>
